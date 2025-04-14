@@ -46,17 +46,22 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-background">
-                <img src="assets/hoptaps.jpg" alt="Hop House Tennessee Taps Bar">
+              <video id="video1" autoplay muted playsinline>
+                <source src="assets/beer.mp4" type="video/mp4">
+              </video>
+              <video id="video2" muted playsinline>
+                <source src="assets/beer.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="hero-content">
-                <h1>Hop House Tennessee Taps</h1>
-                <p>38 Craft Beer Taps • Locally Sourced • Authentic Tennessee Flavor</p>
-                <div class="hero-cta">
-                    <a href="#beer-list" class="btn btn-primary">View Our Taps</a>
-                    <a href="#visit" class="btn btn-secondary">Plan Your Visit</a>
-                </div>
+              <h1>Hop House Tennessee Taps</h1>
+              <p>38 Craft Beer Taps • Locally Sourced • Authentic Tennessee Flavor</p>
+              <div class="hero-cta">
+                <a href="#beer-list" class="btn btn-primary">View Our Taps</a>
+                <a href="#visit" class="btn btn-secondary">Plan Your Visit</a>
+              </div>
             </div>
-        </section>
+          </section>
 
         <section id="about" class="section about">
             <div class="section-content">
@@ -144,8 +149,44 @@
 
     <script src="script.js"></script>
     <script>
-        // Initialize Feather Icons
-        feather.replace();
-    </script>
+        const video1 = document.getElementById('video1');
+        const video2 = document.getElementById('video2');
+        let active = video1;
+        let next = video2;
+
+        function fadeLoop() {
+        const buffer = 1.5; // seconds before end to trigger the transition
+
+        function handleUpdate() {
+            if (active.duration - active.currentTime < buffer) {
+            next.currentTime = 0;
+            next.style.opacity = 1;
+            next.play();
+
+            active.removeEventListener('timeupdate', handleUpdate); // only once
+
+            // Delay fading out the current one just a touch
+            setTimeout(() => {
+                active.pause();
+                active.style.opacity = 0;
+
+                [active, next] = [next, active];
+                fadeLoop(); // restart loop
+            }, 600); // shorter than video length, enough to overlap
+            }
+        }
+
+        active.addEventListener('timeupdate', handleUpdate);
+        }
+
+        video1.style.opacity = 1;
+        video2.style.opacity = 0;
+
+        video1.addEventListener('loadedmetadata', () => {
+        video1.play();
+        fadeLoop();
+        });
+
+        </script>          
 </body>
 </html>
