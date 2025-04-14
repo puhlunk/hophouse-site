@@ -1,0 +1,166 @@
+{
+    "beers": [
+      {
+        "name": "Vee Haw Nashville",
+        "type": "Wheat Ale",
+        "abv": "5.2%",
+        "brewery": "Vee Haw Brewing Co.",
+        "description": "Light and refreshing wheat ale with subtle notes of citrus and coriander.",
+        "origin": "Nashville, TN",
+        "featured": true
+      },
+      {
+        "name": "Black Abbey Rose",
+        "type": "Belgian-Style Ale",
+        "abv": "6.2%",
+        "brewery": "Black Abbey Brewing",
+        "description": "A Belgian-style blonde ale with hints of fruit and spice from Belgian yeast.",
+        "origin": "Nashville, TN",
+        "featured": true
+      },
+      {
+        "name": "Urban Hiker",
+        "type": "Peanut Butter Milk Stout",
+        "abv": "5.8%",
+        "brewery": "Urban Brewing",
+        "description": "Rich, dark stout with decadent peanut butter flavors and a smooth, creamy finish.",
+        "origin": "Chattanooga, TN",
+        "featured": true
+      },
+      {
+        "name": "Czann's Blonde",
+        "type": "American Blonde Ale",
+        "abv": "4.8%",
+        "brewery": "Czann's Brewing",
+        "description": "Light, easy-drinking blonde ale with subtle malt character and a clean finish.",
+        "origin": "Nashville, TN",
+        "featured": true
+      },
+      {
+        "name": "Street Sweeper",
+        "type": "IPA",
+        "abv": "6.0%",
+        "brewery": "Bearded Iris Brewing",
+        "description": "Bright, hop-forward IPA with tropical fruit notes and a balanced bitterness.",
+        "origin": "Nashville, TN",
+        "featured": true
+      },
+      {
+        "name": "Marble Fox",
+        "type": "Nitro Coffee Stout",
+        "abv": "6.5%",
+        "brewery": "Marble Brewing",
+        "description": "Smooth, creamy stout with rich coffee flavors and a silky mouthfeel from nitrogen infusion.",
+        "origin": "Knoxville, TN",
+        "featured": true
+      },
+      {
+        "name": "Tennessee Sunshine",
+        "type": "Hefeweizen",
+        "abv": "5.0%",
+        "brewery": "Southern Grist Brewing",
+        "description": "Traditional German-style wheat beer with banana and clove notes.",
+        "origin": "Nashville, TN",
+        "featured": false
+      },
+      {
+        "name": "Cumberland Porter",
+        "type": "Robust Porter",
+        "abv": "5.7%",
+        "brewery": "Jackalope Brewing",
+        "description": "Full-bodied porter with notes of chocolate, coffee, and a hint of smokiness.",
+        "origin": "Nashville, TN",
+        "featured": false
+      },
+      {
+        "name": "Hill Country Helles",
+        "type": "Munich Helles Lager",
+        "abv": "4.5%",
+        "brewery": "Tennessee Brew Works",
+        "description": "Clean, crisp German-style lager with subtle malt sweetness and floral hop character.",
+        "origin": "Nashville, TN",
+        "featured": false
+      },
+      {
+        "name": "Smoky Mountain Haze",
+        "type": "Hazy IPA",
+        "abv": "6.8%",
+        "brewery": "Wiseacre Brewing",
+        "description": "Juicy, hazy IPA bursting with tropical fruit flavors and minimal bitterness.",
+        "origin": "Memphis, TN",
+        "featured": false
+      },
+      {
+        "name": "Bootlegger Brown",
+        "type": "American Brown Ale",
+        "abv": "5.5%",
+        "brewery": "Yazoo Brewing",
+        "description": "Malty brown ale with notes of caramel, chocolate, and a hint of nuttiness.",
+        "origin": "Nashville, TN",
+        "featured": false
+      },
+      {
+        "name": "Country Roads Pilsner",
+        "type": "Czech Pilsner",
+        "abv": "4.7%",
+        "brewery": "Little Harpeth Brewing",
+        "description": "Traditional Czech-style pilsner with crisp, noble hop character and a clean finish.",
+        "origin": "Nashville, TN",
+        "featured": false
+      },
+      {
+        "name": "House Beer Cheese Ale",
+        "type": "Cream Ale",
+        "abv": "5.0%",
+        "brewery": "Hop House Brewing",
+        "description": "Smooth cream ale that pairs perfectly with our Bavarian Pretzel Stix and house beer cheese.",
+        "origin": "Franklin, TN",
+        "featured": true
+      },
+      {
+        "name": "Wild Hare Pale",
+        "type": "Pale Ale",
+        "abv": "5.4%",
+        "brewery": "Yazoo Brewing",
+        "description": "Balanced pale ale with bright citrus hops and a clean finish, named after our Wild Hare Salad.",
+        "origin": "Nashville, TN",
+        "featured": false
+      },
+      {
+        "name": "Bobby's Reuben Red",
+        "type": "Irish Red Ale",
+        "abv": "5.6%",
+        "brewery": "TailGate Brewery",
+        "description": "Malty Irish red ale with notes of caramel and toasted bread - perfect with our Reuben.",
+        "origin": "Nashville, TN",
+        "featured": false
+      },
+      {
+        "name": "Truffle Farmer",
+        "type": "Saison",
+        "abv": "6.2%",
+        "brewery": "Southern Grist",
+        "description": "Farmhouse ale with earthy notes that complement our Black Truffle Burger.",
+        "origin": "Nashville, TN",
+        "featured": false
+      },
+      {
+        "name": "Poutine Maple Porter",
+        "type": "Maple Porter",
+        "abv": "6.5%",
+        "brewery": "Tennessee Brew Works",
+        "description": "Rich porter with maple syrup added during brewing - a nod to our northern neighbors.",
+        "origin": "Nashville, TN",
+        "featured": false
+      },
+      {
+        "name": "Franklin Gold",
+        "type": "Golden Ale",
+        "abv": "4.9%",
+        "brewery": "Mill Creek Brewing",
+        "description": "Easy-drinking golden ale that's crisp and refreshing with a hint of honey.",
+        "origin": "Nolensville, TN",
+        "featured": false
+      }
+    ]
+  }

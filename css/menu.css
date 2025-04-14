@@ -1,0 +1,471 @@
+/* Menu Page Specific Styles */
+
+/* Menu Hero Section */
+.menu-hero {
+    position: relative;
+    height: 40vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/hoptaps.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px; /* Account for fixed header */
+}
+
+.menu-hero-content {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.menu-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Popular Items Section */
+.popular-items {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.popular-items h2 {
+    font-size: 2.5rem;
+    color: var(--deep-red);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.popular-items h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--copper);
+}
+
+.popular-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.popular-item {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.popular-item:hover {
+    transform: translateY(-10px);
+}
+
+.popular-item-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.popular-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.popular-item:hover .popular-item-image img {
+    transform: scale(1.1);
+}
+
+.popular-item-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--copper);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.popular-item-content {
+    padding: 1.5rem;
+}
+
+.popular-item-content h3 {
+    font-family: 'Merriweather', serif;
+    color: var(--deep-red);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.popular-item-content p {
+    color: var(--dark-text);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.popular-item-price {
+    font-weight: 700;
+    color: var(--copper);
+    font-size: 1.25rem;
+    position: relative;
+}
+
+.popular-item-price::before {
+    content: 0;
+    font-size: 0.8rem;
+    position: relative;
+    top: -0.3rem;
+    margin-right: 0.1rem;
+}
+
+/* Menu Container Layout */
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Menu Navigation */
+.menu-navigation {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--copper);
+}
+
+.menu-navigation ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.menu-navigation ul li {
+    margin-bottom: 0.5rem;
+}
+
+.menu-navigation a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    color: var(--dark-text);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.3s ease;
+}
+
+.menu-navigation a:hover,
+.menu-navigation a.active {
+    background-color: var(--copper);
+    color: white;
+}
+
+/* Menu Sections */
+.menu-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.menu-section.active {
+    display: block;
+}
+
+.menu-category {
+    margin-bottom: 3rem;
+}
+
+.category-title {
+    font-size: 2rem;
+    color: var(--deep-red);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-section h2 {
+    font-size: 2.5rem;
+    color: var(--deep-red);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.menu-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--copper);
+}
+
+/* Menu Items */
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+    padding-bottom: 0.75rem;
+}
+
+.menu-item-header h3 {
+    font-family: 'Merriweather', serif;
+    color: var(--deep-red);
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.pronunciation {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+
+.price {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--copper);
+}
+
+.price::before {
+    content: 0;
+    font-size: 0.8rem;
+    position: relative;
+    top: -0.3rem;
+    margin-right: 0.1rem;
+}
+
+.description {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    color: var(--dark-text);
+}
+
+.add-on {
+    font-style: italic;
+    color: var(--light-text);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.beer-pairing {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    font-size: 0.9rem;
+}
+
+.pairing-label {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.pairing-beer {
+    color: var(--copper);
+    font-style: italic;
+}
+
+/* Menu Note Section */
+.menu-note {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--copper);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.menu-note p {
+    margin: 0.5rem 0;
+}
+
+.add-on-note {
+    font-weight: bold;
+    color: var(--copper);
+    text-align: center;
+    margin-top: 1rem !important;
+}
+
+/* Veggie Option */
+.veggie-option {
+    background-color: rgba(245, 245, 220, 0.5);
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.veggie-option .description {
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Sides Grid */
+.sides-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* Footer Logo */
+.footer-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer-logo img {
+    height: 80px;
+    border-radius: 5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .footer-sections {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .popular-items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-hero {
+        height: 30vh;
+    }
+
+    .menu-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .menu-navigation ul {
+        justify-content: center;
+    }
+
+    .menu-items {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-section h2 {
+        font-size: 2rem;
+    }
+
+    .popular-items-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .menu-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .menu-navigation a {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .menu-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .price {
+        margin-top: 0.5rem;
+    }
+
+    .popular-item-image {
+        height: 180px;
+    }
+}
+
+/* Highlight Animation */
+.highlight {
+    animation: highlight-pulse 2s ease;
+}
+
+@keyframes highlight-pulse {
+    0% { box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    25% { box-shadow: 0 0 25px rgba(183, 65, 14, 0.6); }
+    50% { box-shadow: 0 0 25px rgba(183, 65, 14, 0.6); }
+    100% { box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+}
+
+/* Interactive Elements */
+.popular-item {
+    cursor: pointer;
+}
+
+.popular-item-badge {
+    transition: all 0.3s ease;
+}
+
+/* Cursor Styles */
+.menu-navigation a {
+    cursor: pointer;
+}
+
+/* Fade-in Animation */
+main {
+    opacity: 0;
+}
+
+/* Make the popular items look better on mobile */
+@media (max-width: 576px) {
+    .popular-item {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    .footer-logo img {
+        height: 60px;
+    }
+    
+    .category-title {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+}

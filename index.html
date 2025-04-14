@@ -29,8 +29,8 @@
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
                     <li><a href="#beer-list">Beer List</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#visit">Visit Us</a></li>
                 </ul>
@@ -46,35 +46,43 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-background">
-              <video id="video1" autoplay muted playsinline>
-                <source src="assets/beer.mp4" type="video/mp4">
-              </video>
-              <video id="video2" muted playsinline>
-                <source src="assets/beer.mp4" type="video/mp4">
-              </video>
+                <video id="video1" autoplay muted playsinline>
+                    <source src="assets/beer.mp4" type="video/mp4">
+                </video>
+                <video id="video2" muted playsinline>
+                    <source src="assets/beer.mp4" type="video/mp4">
+                </video>
             </div>
-            <div class="hero-content">
-              <h1>Hop House Tennessee Taps</h1>
-              <p>38 Craft Beer Taps • Locally Sourced • Authentic Tennessee Flavor</p>
-              <div class="hero-cta">
-                <a href="#beer-list" class="btn btn-primary">View Our Taps</a>
-                <a href="#visit" class="btn btn-secondary">Plan Your Visit</a>
-              </div>
-            </div>
-          </section>
-
-        <section id="about" class="section about">
-            <div class="section-content">
-                <h2>Our Story</h2>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>Founded in 2019 by Kenny Sizemore and Mark Cook, Hop House Tennessee Taps is a celebration of Tennessee's vibrant craft beer culture. We're passionate about showcasing local breweries and creating a welcoming space for beer enthusiasts.</p>
-                        <p>Our carefully curated selection features 30 rotating taps from local Tennessee breweries and 8 regional favorites. We believe in supporting local craft and providing an authentic beer experience.</p>
-                    </div>
-                    <div class="about-image">
-                        <img src="assets/hopinside.jpg" alt="Inside of Hop House Tennessee Taps">
+            <div class="hero-content-wrapper">
+                <div class="hero-content">
+                    <h1>Hop House Tennessee Taps</h1>
+                    <p>38 Craft Beer Taps • Locally Sourced • Authentic Tennessee Flavor</p>
+                    <div class="hero-cta">
+                        <a href="#beer-list" class="btn btn-primary">View Our Taps</a>
+                        <a href="menu.html" class="btn btn-secondary">Food Menu</a>
                     </div>
                 </div>
+                <div class="hero-quick-info">
+                    <div class="info-card">
+                        <i data-feather="map-pin"></i>
+                        <h3>Find Us</h3>
+                        <p>117 5th Ave N B, Franklin, TN</p>
+                    </div>
+                    <div class="info-card">
+                        <i data-feather="clock"></i>
+                        <h3>Hours Today</h3>
+                        <p id="hours-today">11AM - 10PM</p>
+                    </div>
+                    <div class="info-card">
+                        <i data-feather="award"></i>
+                        <h3>Featured Beer</h3>
+                        <p id="featured-beer">Vee Haw Nashville</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <p>Scroll to explore</p>
+                <i data-feather="chevron-down"></i>
             </div>
         </section>
 
@@ -87,6 +95,21 @@
                 </div>
                 <div class="beer-info">
                     <p>Our taps change frequently! Ask our beer experts about today's unique selections.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="section-content">
+                <h2>Our Story</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Founded in 2019 by Kenny Sizemore and Mark Cook, Hop House Tennessee Taps is a celebration of Tennessee's vibrant craft beer culture. We're passionate about showcasing local breweries and creating a welcoming space for beer enthusiasts.</p>
+                        <p>Our carefully curated selection features 30 rotating taps from local Tennessee breweries and 8 regional favorites. We believe in supporting local craft and providing an authentic beer experience.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/hopinside.jpg" alt="Inside of Hop House Tennessee Taps">
+                    </div>
                 </div>
             </div>
         </section>
@@ -116,10 +139,10 @@
                         <p><i data-feather="mail"></i> hophouse@hophousetntaps.com</p>
                         
                         <h3>Business Hours</h3>
-                        <ul>
-                            <li>Mon - Thu: 11AM - 10PM</li>
-                            <li>Fri - Sat: 11AM - 12AM</li>
-                            <li>Sun: 11AM - 9PM</li>
+                        <ul class="hours-list">
+                            <li><span>Monday - Thursday</span><span>11AM - 10PM</span></li>
+                            <li><span>Friday - Saturday</span><span>11AM - 12AM</span></li>
+                            <li><span>Sunday</span><span>11AM - 9PM</span></li>
                         </ul>
                     </div>
                     <div class="location-map">
@@ -136,57 +159,105 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 Hop House Tennessee Taps. All Rights Reserved.</p>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><i data-feather="facebook"></i></a>
-                <a href="#" aria-label="Instagram"><i data-feather="instagram"></i></a>
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h4>Hop House Tennessee Taps</h4>
+                    <p>Franklin's premier craft beer destination, featuring 38 rotating taps with a focus on Tennessee breweries.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#beer-list">Beer List</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#visit">Visit Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i data-feather="facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i data-feather="instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i data-feather="twitter"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-signature">
-                Designed and Developed by <a href="https://puhlunk.com" target="_blank">PUHLUNK</a>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hop House Tennessee Taps. All Rights Reserved.</p>
+                <div class="footer-signature">
+                    Designed and Developed by <a href="https://puhlunk.com" target="_blank">PUHLUNK</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
+        // Set current day's hours
+        document.addEventListener('DOMContentLoaded', function() {
+            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const today = new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
+            const hoursToday = document.getElementById('hours-today');
+            
+            if (hoursToday) {
+                if (today === 0) { // Sunday
+                    hoursToday.textContent = '11AM - 9PM';
+                } else if (today === 5 || today === 6) { // Friday or Saturday
+                    hoursToday.textContent = '11AM - 12AM';
+                } else { // Monday-Thursday
+                    hoursToday.textContent = '11AM - 10PM';
+                }
+            }
+        });
+
+        // Video fade effect
         const video1 = document.getElementById('video1');
         const video2 = document.getElementById('video2');
         let active = video1;
         let next = video2;
 
         function fadeLoop() {
-        const buffer = 1.5; // seconds before end to trigger the transition
+            const buffer = 1.5; // seconds before end to trigger the transition
 
-        function handleUpdate() {
-            if (active.duration - active.currentTime < buffer) {
-            next.currentTime = 0;
-            next.style.opacity = 1;
-            next.play();
+            function handleUpdate() {
+                if (active.duration - active.currentTime < buffer) {
+                    next.currentTime = 0;
+                    next.style.opacity = 1;
+                    next.play();
 
-            active.removeEventListener('timeupdate', handleUpdate); // only once
+                    active.removeEventListener('timeupdate', handleUpdate); // only once
 
-            // Delay fading out the current one just a touch
-            setTimeout(() => {
-                active.pause();
-                active.style.opacity = 0;
+                    // Delay fading out the current one just a touch
+                    setTimeout(() => {
+                        active.pause();
+                        active.style.opacity = 0;
 
-                [active, next] = [next, active];
-                fadeLoop(); // restart loop
-            }, 600); // shorter than video length, enough to overlap
+                        [active, next] = [next, active];
+                        fadeLoop(); // restart loop
+                    }, 600); // shorter than video length, enough to overlap
+                }
             }
-        }
 
-        active.addEventListener('timeupdate', handleUpdate);
+            active.addEventListener('timeupdate', handleUpdate);
         }
 
         video1.style.opacity = 1;
         video2.style.opacity = 0;
 
         video1.addEventListener('loadedmetadata', () => {
-        video1.play();
-        fadeLoop();
+            video1.play();
+            fadeLoop();
         });
 
-        </script>          
+        // Scroll indicator fade effect
+        window.addEventListener('scroll', function() {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100) {
+                scrollIndicator.classList.add('fade-out');
+            } else {
+                scrollIndicator.classList.remove('fade-out');
+            }
+        });
+    </script>          
 </body>
 </html>

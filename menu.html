@@ -1,0 +1,777 @@
+<script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu Navigation
+            const menuNavLinks = document.querySelectorAll('.menu-nav-link');
+            const menuSections = document.querySelectorAll('.menu-section');
+            
+            menuNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and sections
+                    menuNavLinks.forEach(navLink => navLink.classList.remove('active'));
+                    menuSections.forEach(section => section.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Smooth scroll to section
+                    document.getElementById(targetId).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+            
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    menuToggle.classList.toggle('open');
+                });
+            }
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (navMenu && navMenu.classList.contains('active') && !e.target.closest('.menu-toggle') && !e.target.closest('.nav-menu')) {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                }
+            });
+            
+            // Popular Items Hover Effect
+            const popularItems = document.querySelectorAll('.popular-item');
+            
+            popularItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.querySelector('.popular-item-badge').style.transform = 'translateY(-5px)';
+                    this.querySelector('.popular-item-badge').style.boxShadow = '0 5px 10px rgba(0,0,0,0.3)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.querySelector('.popular-item-badge').style.transform = 'translateY(0)';
+                    this.querySelector('.popular-item-badge').style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+                });
+            });
+            
+            // Initialize feather icons
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+            
+            // Show page content with fade-in effect
+            document.querySelector('main').style.opacity = 0;
+            setTimeout(() => {
+                document.querySelector('main').style.transition = 'opacity 0.8s ease';
+                document.querySelector('main').style.opacity = 1;
+            }, 100);
+            
+            // Add click event for popular items to navigate to full menu
+            const popularItemElements = document.querySelectorAll('.popular-item');
+            popularItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Find the menu item that has the same name
+                    const itemName = this.querySelector('h3').textContent;
+                    
+                    // Activate the full menu tab
+                    menuNavLinks.forEach(navLink => {
+                        if (navLink.getAttribute('href') === '#full-menu') {
+                            // Simulate click
+                            navLink.click();
+                            
+                            // After a small delay, scroll to the matching item
+                            setTimeout(() => {
+                                const menuItems = document.querySelectorAll('#full-menu .menu-item');
+                                menuItems.forEach(menuItem => {
+                                    if (menuItem.querySelector('h3') && 
+                                        menuItem.querySelector('h3').textContent === itemName) {
+                                        menuItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                        menuItem.classList.add('highlight');
+                                        
+                                        // Remove highlight after animation
+                                        setTimeout(() => {
+                                            menuItem.classList.remove('highlight');
+                                        }, 2000);
+                                    }
+                                });
+                            }, 500);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Drink Menu | Hop House Tennessee Taps</title>
+    <meta name="description" content="Explore our delicious food menu featuring shareable appetizers, handhelds, and specialty burgers paired with 38 craft beer taps in Franklin, TN.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/menu.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/avif" href="assets/hhlogo.avif">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/hhlogo.avif" alt="Hop House Tennessee Taps Logo">
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#beer-list">Beer List</a></li>
+                    <li><a href="menu.html" class="active">Menu</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                    <li><a href="index.html#visit">Visit Us</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="menu-hero">
+            <div class="menu-hero-content">
+                <h1>Our Food Menu</h1>
+                <p>Delicious food crafted to pair perfectly with our extensive beer selection</p>
+            </div>
+        </section>
+
+        <section class="popular-items">
+            <div class="section-content">
+                <h2>Popular Items</h2>
+                <div class="popular-items-grid">
+                    <div class="popular-item">
+                        <div class="popular-item-image">
+                            <img src="assets/pretzel.jpg" alt="Bavarian Pretzel Stix">
+                            <div class="popular-item-badge">Bestseller</div>
+                        </div>
+                        <div class="popular-item-content">
+                            <h3>Bavarian Pretzel Stix</h3>
+                            <p>Qty. 2 Pretzel sticks w/ melted House Beer Cheese.</p>
+                            <div class="popular-item-price">8.5</div>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <div class="popular-item-image">
+                            <img src="assets/potine.jpg" alt="Poutine">
+                            <div class="popular-item-badge">Staff Pick</div>
+                        </div>
+                        <div class="popular-item-content">
+                            <h3>Poutine</h3>
+                            <p>A favorite snack up north. Crispy fries smothered in brown gravy and topped with white cheddar curds.</p>
+                            <div class="popular-item-price">12</div>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <div class="popular-item-image">
+                            <img src="assets/quesidilla.jpg" alt="Hop House Quesadilla">
+                        </div>
+                        <div class="popular-item-content">
+                            <h3>Hop House Quesadilla</h3>
+                            <p>X-tra large flour tortilla w/ Mex-blend cheeses & sliced veggies.</p>
+                            <div class="popular-item-price">10.5</div>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <div class="popular-item-image">
+                            <img src="assets/turkeyavo.jpg" alt="Turkey Avocado">
+                            <div class="popular-item-badge">Customer Favorite</div>
+                        </div>
+                        <div class="popular-item-content">
+                            <h3>Turkey Avocado</h3>
+                            <p>Hot Panini w/pan-roasted turkey, gouda, avocado, & Smokey Tomato Jam.</p>
+                            <div class="popular-item-price">13</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-container">
+            <div class="menu-navigation">
+                <ul>
+                    <li><a href="#full-menu" class="menu-nav-link active">Full Menu</a></li>
+                    <li><a href="#shareables" class="menu-nav-link">Shareables</a></li>
+                    <li><a href="#handhelds" class="menu-nav-link">Handhelds</a></li>
+                    <li><a href="#salads" class="menu-nav-link">Salads</a></li>
+                    <li><a href="#sides" class="menu-nav-link">Sides</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-content">
+                <div id="full-menu" class="menu-section active">
+                    <h2>Full Menu</h2>
+                    
+                    <div class="menu-category">
+                        <h3 class="category-title">A Shareable</h3>
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Bavarian Pretzel Stix</h3>
+                                    <span class="price">8.5</span>
+                                </div>
+                                <p class="description">Qty. 2 Pretzel sticks w/ melted House Beer Cheese.</p>
+                                <div class="beer-pairing">
+                                    <span class="pairing-label">Perfect Pairing:</span>
+                                    <span class="pairing-beer">House Beer Cheese Ale</span>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Smoked Chicken Skewers</h3>
+                                    <span class="price">10.5</span>
+                                </div>
+                                <p class="description">House-smoked chicken w/ choice of BBQ, Spicy BBQ, Carolina Gold, or Buffalo Sauce.</p>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Hop House Quesadilla</h3>
+                                    <span class="price">10.5</span>
+                                </div>
+                                <p class="description">X-tra large flour tortilla w/ Mex-blend cheeses & sliced veggies.</p>
+                                <p class="add-on">Add Chicken +3, Add Shrimp +5</p>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Garlic Parm Fries</h3>
+                                    <span class="price">9</span>
+                                </div>
+                                <p class="description">Crispy house-cut fries tossed in garlic, grated parmesan, sea salt, black pepper w/ side of spicy ranch.</p>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Poutine <span class="pronunciation">(poō'tēen)</span></h3>
+                                    <span class="price">12</span>
+                                </div>
+                                <p class="description">A favorite snack up north. Crispy fries smothered in brown gravy and topped with white cheddar curds.</p>
+                                <div class="beer-pairing">
+                                    <span class="pairing-label">Perfect Pairing:</span>
+                                    <span class="pairing-beer">Poutine Maple Porter</span>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Artisan Board</h3>
+                                    <span class="price">13</span>
+                                </div>
+                                <p class="description">1 select meat paired w/ a fine cheese & assortment of condiments.</p>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Sausage Cheese Board</h3>
+                                    <span class="price">13</span>
+                                </div>
+                                <p class="description">Sausage, cheese, pickles, pepperoncini, served with mustard and bbq sauce for dipping.</p>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Mixed Nuts</h3>
+                                    <span class="price">3.5</span>
+                                </div>
+                                <p class="description">Mixed nuts with olive oil and garnished with parsley.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category">
+                        <h3 class="category-title">A Handful</h3>
+                        <div class="menu-note">
+                            <p>All sandwiches served with kettle chips/pickle.</p>
+                            <p>Sub: House Fries +2, Garlic Parm Fries +2.5, Coleslaw +2, Side Salad +2.5</p>
+                            <p class="add-on-note">*ADD BACON TO ANY HANDHELD +3*</p>
+                        </div>
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Turkey Avocado</h3>
+                                    <span class="price">13</span>
+                                </div>
+                                <p class="description">Hot Panini w/pan-roasted turkey, gouda, avocado, & Smokey Tomato Jam.</p>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Hop House BLT</h3>
+                                    <span class="price">12</span>
+                                </div>
+                                <p class="description">Thick-cut bacon on Texas Toast w/ crispy lettuce, fresh sliced tomato, & horsey mayo.</p>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Spaghetti Grilled Cheese</h3>
+                                    <span class="price">13</span>
+                                </div>
+                                <p class="description">Angel hair spaghetti, house made marinara, provolone and mozzarella on garlic Texas toast, sprinkled with parmesan.</p>
+                                <p class="add-on">+2.5 add ground beef</p>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Bobby's Reuben</h3>
+                                    <span class="price">15</span>
+                                </div>
+                                <p class="description">Thin-sliced corned beef, Swiss cheese, tangy sauerkraut, in-house dressing on grilled black Russian rye bread.</p>
+                                <div class="beer-pairing">
+                                    <span class="pairing-label">Perfect Pairing:</span>
+                                    <span class="pairing-beer">Bobby's Reuben Red</span>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Hop House Burger</h3>
+                                    <span class="price">15</span>
+                                </div>
+                                <p class="description">Classic 6oz patty on a soft bun w/ American cheese, lettuce, tomato, onion, house pickles, mayo,& mustard.</p>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Black Truffle Burger</h3>
+                                    <span class="price">16</span>
+                                </div>
+                                <p class="description">Large beef patty w/ in-house Truffle sauce, sautéed shallots, mushrooms, Muenster cheese on a brioche bun.</p>
+                                <div class="beer-pairing">
+                                    <span class="pairing-label">Perfect Pairing:</span>
+                                    <span class="pairing-beer">Truffle Farmer Saison</span>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>The Fatty Patty Melt</h3>
+                                    <span class="price">14.5</span>
+                                </div>
+                                <p class="description">Thick beef patty on Russian rye toast topped with grilled onions, house burger sauce, Swiss cheese, and hot pressed.</p>
+                            </div>
+
+                            <div class="menu-item veggie-option">
+                                <p class="description">*WE OFFER A 6oz VEGGIE BLACK BEAN BURGER +3 (contains gluten)*</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category">
+                        <h3 class="category-title">Salads</h3>
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Wild Hare Salad</h3>
+                                    <span class="price">10</span>
+                                </div>
+                                <p class="description">Mixed greens, croutons, tomato, cucumber, onions, bacon, cheese, w/ ranch or balsamic.</p>
+                                <p class="add-on">Add Chicken +3, Add shrimp +5</p>
+                                <div class="beer-pairing">
+                                    <span class="pairing-label">Perfect Pairing:</span>
+                                    <span class="pairing-beer">Wild Hare Pale Ale</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category">
+                        <h3 class="category-title">Sides</h3>
+                        <div class="menu-items sides-grid">
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>House Fries</h3>
+                                    <span class="price">2</span>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Garlic Parm Fries</h3>
+                                    <span class="price">2.5</span>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Coleslaw</h3>
+                                    <span class="price">2</span>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <h3>Side Salad</h3>
+                                    <span class="price">2.5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="shareables" class="menu-section">
+                    <h2>A Shareable</h2>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Bavarian Pretzel Stix</h3>
+                                <span class="price">8.5</span>
+                            </div>
+                            <p class="description">Qty. 2 Pretzel sticks w/ melted House Beer Cheese.</p>
+                            <div class="beer-pairing">
+                                <span class="pairing-label">Perfect Pairing:</span>
+                                <span class="pairing-beer">House Beer Cheese Ale</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Smoked Chicken Skewers</h3>
+                                <span class="price">10.5</span>
+                            </div>
+                            <p class="description">House-smoked chicken w/ choice of BBQ, Spicy BBQ, Carolina Gold, or Buffalo Sauce.</p>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Hop House Quesadilla</h3>
+                                <span class="price">10.5</span>
+                            </div>
+                            <p class="description">X-tra large flour tortilla w/ Mex-blend cheeses & sliced veggies.</p>
+                            <p class="add-on">Add Chicken +3, Add Shrimp +5</p>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Garlic Parm Fries</h3>
+                                <span class="price">9</span>
+                            </div>
+                            <p class="description">Crispy house-cut fries tossed in garlic, grated parmesan, sea salt, black pepper w/ side of spicy ranch.</p>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Poutine <span class="pronunciation">(poō'tēen)</span></h3>
+                                <span class="price">12</span>
+                            </div>
+                            <p class="description">A favorite snack up north. Crispy fries smothered in brown gravy and topped with white cheddar curds.</p>
+                            <div class="beer-pairing">
+                                <span class="pairing-label">Perfect Pairing:</span>
+                                <span class="pairing-beer">Poutine Maple Porter</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Artisan Board</h3>
+                                <span class="price">13</span>
+                            </div>
+                            <p class="description">1 select meat paired w/ a fine cheese & assortment of condiments.</p>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Sausage Cheese Board</h3>
+                                <span class="price">13</span>
+                            </div>
+                            <p class="description">Sausage, cheese, pickles, pepperoncini, served with mustard and bbq sauce for dipping.</p>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Mixed Nuts</h3>
+                                <span class="price">3.5</span>
+                            </div>
+                            <p class="description">Mixed nuts with olive oil and garnished with parsley.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="handhelds" class="menu-section">
+                    <h2>A Handful</h2>
+                    <div class="menu-note">
+                        <p>All sandwiches served with kettle chips/pickle.</p>
+                        <p>Sub: House Fries +2, Garlic Parm Fries +2.5, Coleslaw +2, Side Salad +2.5</p>
+                        <p class="add-on-note">*ADD BACON TO ANY HANDHELD +3*</p>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Turkey Avocado</h3>
+                                <span class="price">13</span>
+                            </div>
+                            <p class="description">Hot Panini w/pan-roasted turkey, gouda, avocado, & Smokey Tomato Jam.</p>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Hop House BLT</h3>
+                                <span class="price">12</span>
+                            </div>
+                            <p class="description">Thick-cut bacon on Texas Toast w/ crispy lettuce, fresh sliced tomato, & horsey mayo.</p>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Spaghetti Grilled Cheese</h3>
+                                <span class="price">13</span>
+                            </div>
+                            <p class="description">Angel hair spaghetti, house made marinara, provolone and mozzarella on garlic Texas toast, sprinkled with parmesan.</p>
+                            <p class="add-on">+2.5 add ground beef</p>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Bobby's Reuben</h3>
+                                <span class="price">15</span>
+                            </div>
+                            <p class="description">Thin-sliced corned beef, Swiss cheese, tangy sauerkraut, in-house dressing on grilled black Russian rye bread.</p>
+                            <div class="beer-pairing">
+                                <span class="pairing-label">Perfect Pairing:</span>
+                                <span class="pairing-beer">Bobby's Reuben Red</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Hop House Burger</h3>
+                                <span class="price">15</span>
+                            </div>
+                            <p class="description">Classic 6oz patty on a soft bun w/ American cheese, lettuce, tomato, onion, house pickles, mayo,& mustard.</p>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Black Truffle Burger</h3>
+                                <span class="price">16</span>
+                            </div>
+                            <p class="description">Large beef patty w/ in-house Truffle sauce, sautéed shallots, mushrooms, Muenster cheese on a brioche bun.</p>
+                            <div class="beer-pairing">
+                                <span class="pairing-label">Perfect Pairing:</span>
+                                <span class="pairing-beer">Truffle Farmer Saison</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>The Fatty Patty Melt</h3>
+                                <span class="price">14.5</span>
+                            </div>
+                            <p class="description">Thick beef patty on Russian rye toast topped with grilled onions, house burger sauce, Swiss cheese, and hot pressed.</p>
+                        </div>
+
+                        <div class="menu-item veggie-option">
+                            <p class="description">*WE OFFER A 6oz VEGGIE BLACK BEAN BURGER +3 (contains gluten)*</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="salads" class="menu-section">
+                    <h2>Salads</h2>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Wild Hare Salad</h3>
+                                <span class="price">10</span>
+                            </div>
+                            <p class="description">Mixed greens, croutons, tomato, cucumber, onions, bacon, cheese, w/ ranch or balsamic.</p>
+                            <p class="add-on">Add Chicken +3, Add shrimp +5</p>
+                            <div class="beer-pairing">
+                                <span class="pairing-label">Perfect Pairing:</span>
+                                <span class="pairing-beer">Wild Hare Pale Ale</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sides" class="menu-section">
+                    <h2>Sides</h2>
+                    <div class="menu-items sides-grid">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>House Fries</h3>
+                                <span class="price">2</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Garlic Parm Fries</h3>
+                                <span class="price">2.5</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Coleslaw</h3>
+                                <span class="price">2</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3>Side Salad</h3>
+                                <span class="price">2.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/hhlogo.avif" alt="Hop House Tennessee Taps Logo">
+            </div>
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h4>Hop House Tennessee Taps</h4>
+                    <p>Franklin's premier craft beer destination, featuring 38 rotating taps with a focus on Tennessee breweries.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#beer-list">Beer List</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#visit">Visit Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i data-feather="facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i data-feather="instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i data-feather="twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hop House Tennessee Taps. All Rights Reserved.</p>
+                <div class="footer-signature">
+                    Designed and Developed by <a href="https://puhlunk.com" target="_blank">PUHLUNK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h4>Hop House Tennessee Taps</h4>
+                    <p>Franklin's premier craft beer destination, featuring 38 rotating taps with a focus on Tennessee breweries.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#beer-list">Beer List</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#visit">Visit Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i data-feather="facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i data-feather="instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i data-feather="twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hop House Tennessee Taps. All Rights Reserved.</p>
+                <div class="footer-signature">
+                    Designed and Developed by <a href="https://puhlunk.com" target="_blank">PUHLUNK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu Navigation
+            const menuNavLinks = document.querySelectorAll('.menu-nav-link');
+            const menuSections = document.querySelectorAll('.menu-section');
+            
+            menuNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and sections
+                    menuNavLinks.forEach(navLink => navLink.classList.remove('active'));
+                    menuSections.forEach(section => section.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Smooth scroll to section
+                    document.getElementById(targetId).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+            
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    menuToggle.classList.toggle('open');
+                });
+            }
+            
+            // Initialize feather icons
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+        });
+    </script>
+</body>
+</html>
